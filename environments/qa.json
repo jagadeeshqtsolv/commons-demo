@@ -1,0 +1,15 @@
+{
+  "name": "qa",
+  "slug": "qa",
+  "baseURL": "https://commons-qa.util.ukg.com/",
+  "browser": "chromium",
+  "headless": true,
+  "timeout": 30000,
+  "actionTimeout": 10000,
+  "retries": 0,
+  "fullyParallel": false,
+  "workers": 1,
+  "video": "retain-on-failure",
+  "trace": "retain-on-failure",
+  "screenshot": "only-on-failure"
+}
