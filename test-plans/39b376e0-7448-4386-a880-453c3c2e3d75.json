@@ -100,15 +100,15 @@
             "id": "s3",
             "action": "assertVisible",
             "targetDescription": "A Save (bookmark) icon is visible on a Latest news card",
-            "screenName": "UkgcommonsPage",
-            "pageObjectMethod": "expectSaveIconVisible"
+            "screenName": "UKGCommons",
+            "pageObjectMethod": "expectSaveNewsVisible"
           },
           {
             "id": "s4",
             "action": "tap",
             "targetDescription": "Tap Save (bookmark) icon on a Latest news card",
-            "screenName": "UkgcommonsPage",
-            "pageObjectMethod": "clickSaveIcon"
+            "screenName": "UKGCommons",
+            "pageObjectMethod": "clickSaveNews"
           },
           {
             "id": "s5",
@@ -121,15 +121,14 @@
             "id": "s6",
             "action": "tap",
             "targetDescription": "Open profile menu",
-            "screenName": "UkgcommonsPage",
+            "screenName": "UKGCommons",
             "pageObjectMethod": "clickJagadeesh"
           },
           {
             "id": "s7",
             "action": "assertVisible",
             "targetDescription": "'My saved news' menu item visible",
-            "screenName": "UkgcommonsPage",
-            "pageObjectMethod": "expectMySavedNewsVisible"
+            "customCode": "await ukgcommonsPage.expectMySavedNewsVisible();"
           },
           {
             "id": "s8",
