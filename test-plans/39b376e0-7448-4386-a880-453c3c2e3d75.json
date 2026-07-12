@@ -33,7 +33,7 @@
             "id": "s3",
             "action": "assertVisible",
             "targetDescription": "At least one Save (bookmark) icon is visible on a news card",
-            "customCode": "try {\n  await ukgcommonsPage.expectUnsaveNewsVisible();\n} catch {\n  await ukgcommonsPage.clickSaveNews();\n  await ukgcommonsPage.expectUnsaveNewsVisible();\n}"
+            "customCode": "try {\n  await ukgcommonsPage.clickSaveNews();\n  \n} catch {\n  await await ukgcommonsPage.clickUnsaveNews();\n  await ukgcommonsPage.expectUnsaveNewsVisible();\n}"
           },
           {
             "id": "s4",

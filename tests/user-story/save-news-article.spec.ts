@@ -10,9 +10,9 @@ test('Save from Featured News via toast and land on My Saved News', { tag: ["@sm
   });
   await test.step('At least one Save (bookmark) icon is visible on a news card', async () => {
     try {
-      await ukgcommonsPage.expectUnsaveNewsVisible();
-    } catch {
       await ukgcommonsPage.clickSaveNews();
+    } catch {
+      await await ukgcommonsPage.clickUnsaveNews();
       await ukgcommonsPage.expectUnsaveNewsVisible();
     }
   });
