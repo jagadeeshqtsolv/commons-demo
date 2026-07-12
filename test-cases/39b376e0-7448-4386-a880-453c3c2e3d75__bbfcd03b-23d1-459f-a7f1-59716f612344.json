@@ -1,0 +1,72 @@
+{
+  "id": "bbfcd03b-23d1-459f-a7f1-59716f612344",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "bbfcd03b-23d1-459f-a7f1-59716f612344",
+    "title": "Open a saved item from My Saved News opens full article in a new tab",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Save a news article (any)",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickSaveIcon"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "Toast confirms saved",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectNewsSavedSuccessfullyVisible"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Open My Saved News via toast link",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickViewSavedNewsUnder"
+      },
+      {
+        "id": "s5",
+        "action": "assertCount",
+        "targetDescription": "At least 1 saved news card exists",
+        "locatorHint": "[data-testid='saved-news-card']"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Tap first saved news card to open article",
+        "locatorHint": "[data-testid='saved-news-card']:first-child a"
+      },
+      {
+        "id": "s7",
+        "action": "switchToNewTab",
+        "targetDescription": "Switch to newly opened article tab"
+      },
+      {
+        "id": "s8",
+        "action": "assertVisible",
+        "targetDescription": "Article content is displayed",
+        "locatorHint": "body"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression",
+      "@manual"
+    ]
+  }
+}

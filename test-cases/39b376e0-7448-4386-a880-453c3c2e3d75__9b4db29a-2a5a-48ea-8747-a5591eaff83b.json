@@ -1,0 +1,75 @@
+{
+  "id": "9b4db29a-2a5a-48ea-8747-a5591eaff83b",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "9b4db29a-2a5a-48ea-8747-a5591eaff83b",
+    "title": "Save from Featured News via toast and land on My Saved News",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "assertVisible",
+        "targetDescription": "Featured News section is visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectFeaturedVisible"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "At least one Save (bookmark) icon is visible on a news card",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectSaveIconVisible"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Tap Save (bookmark) icon on a Featured news card",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickSaveIcon"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Toast 'News saved successfully!, View saved news under Profile' is visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectNewsSavedSuccessfullyVisible"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Click 'View saved news under Profile' in toast",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickViewSavedNewsUnder"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "My Saved News page is visible",
+        "screenName": "SavedNewsPage",
+        "pageObjectMethod": "expectMySavedNewsVisible"
+      },
+      {
+        "id": "s8",
+        "action": "assertCount",
+        "targetDescription": "There is at least 1 saved news card listed",
+        "locatorHint": "[data-testid='saved-news-card']"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}

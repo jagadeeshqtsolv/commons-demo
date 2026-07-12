@@ -1,0 +1,80 @@
+{
+  "id": "1102b616-2291-4e14-be5e-4c72ead29d56",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "1102b616-2291-4e14-be5e-4c72ead29d56",
+    "title": "Saved items persist across navigation within the same session",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Save a news article (any)",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickSaveIcon"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "Toast confirms saved",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectNewsSavedSuccessfullyVisible"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Open My Saved News via toast link",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickViewSavedNewsUnder"
+      },
+      {
+        "id": "s5",
+        "action": "assertCount",
+        "targetDescription": "Exactly 1 saved news card present",
+        "locatorHint": "[data-testid='saved-news-card']"
+      },
+      {
+        "id": "s6",
+        "action": "openUrl",
+        "targetDescription": "Navigate back to Home",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s7",
+        "action": "tap",
+        "targetDescription": "Open profile menu",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickJagadeesh"
+      },
+      {
+        "id": "s8",
+        "action": "tap",
+        "targetDescription": "Navigate to My Saved News via profile",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickMySavedNews"
+      },
+      {
+        "id": "s9",
+        "action": "assertCount",
+        "targetDescription": "Saved item persists (still 1 card present)",
+        "locatorHint": "[data-testid='saved-news-card']"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "id": "89d77d0c-d2b4-45d3-8c06-8ce2e9e581c6",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "89d77d0c-d2b4-45d3-8c06-8ce2e9e581c6",
+    "title": "Saved items show in reverse chronological order (latest saved appears first)",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Save article A: Global Impact In Action",
+        "locatorHint": "[data-testid='news-card']:has-text('Global Impact In Action') [data-testid='bookmark-toggle']"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Save article B: Pride Month 2026 Together",
+        "locatorHint": "[data-testid='news-card']:has-text('Pride Month 2026 Together') [data-testid='bookmark-toggle']"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Open profile menu",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickJagadeesh"
+      },
+      {
+        "id": "s5",
+        "action": "tap",
+        "targetDescription": "Navigate to My Saved News via profile",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickMySavedNews"
+      },
+      {
+        "id": "s6",
+        "action": "assertContainsText",
+        "targetDescription": "First saved card contains latest saved article (B)",
+        "locatorHint": "[data-testid='saved-news-card']:nth-child(1)",
+        "assertion": "Pride Month 2026 Together"
+      },
+      {
+        "id": "s7",
+        "action": "assertContainsText",
+        "targetDescription": "Second saved card contains earlier saved article (A)",
+        "locatorHint": "[data-testid='saved-news-card']:nth-child(2)",
+        "assertion": "Global Impact In Action"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}

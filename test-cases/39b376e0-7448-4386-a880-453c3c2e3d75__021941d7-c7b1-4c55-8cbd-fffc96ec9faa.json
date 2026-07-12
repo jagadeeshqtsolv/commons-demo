@@ -1,0 +1,53 @@
+{
+  "id": "021941d7-c7b1-4c55-8cbd-fffc96ec9faa",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "021941d7-c7b1-4c55-8cbd-fffc96ec9faa",
+    "title": "Bookmark icon visible on article cards in both Featured and Latest sections",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "assertVisible",
+        "targetDescription": "Featured section visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectFeaturedVisible"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "Save icon visible on a Featured card",
+        "locatorHint": "[data-section='featured'] [data-testid='bookmark-toggle']"
+      },
+      {
+        "id": "s4",
+        "action": "assertVisible",
+        "targetDescription": "Latest News section visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectLatestNewsTitleVisible"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Save icon visible on a Latest card",
+        "locatorHint": "[data-section='latest'] [data-testid='bookmark-toggle']"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}

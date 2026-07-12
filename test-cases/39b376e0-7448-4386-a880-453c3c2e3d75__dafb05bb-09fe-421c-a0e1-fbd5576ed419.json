@@ -1,0 +1,101 @@
+{
+  "id": "dafb05bb-09fe-421c-a0e1-fbd5576ed419",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "dafb05bb-09fe-421c-a0e1-fbd5576ed419",
+    "title": "Save from Latest News, navigate via profile to My Saved News, then Unsave removes immediately",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "assertVisible",
+        "targetDescription": "Latest News section title is visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectLatestNewsTitleVisible"
+      },
+      {
+        "id": "s3",
+        "action": "assertVisible",
+        "targetDescription": "A Save (bookmark) icon is visible on a Latest news card",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectSaveIconVisible"
+      },
+      {
+        "id": "s4",
+        "action": "tap",
+        "targetDescription": "Tap Save (bookmark) icon on a Latest news card",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickSaveIcon"
+      },
+      {
+        "id": "s5",
+        "action": "assertVisible",
+        "targetDescription": "Saved state indicated (e.g., Unsave available)",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectUnsaveNewsVisible"
+      },
+      {
+        "id": "s6",
+        "action": "tap",
+        "targetDescription": "Open profile menu",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickJagadeesh"
+      },
+      {
+        "id": "s7",
+        "action": "assertVisible",
+        "targetDescription": "'My saved news' menu item visible",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "expectMySavedNewsVisible"
+      },
+      {
+        "id": "s8",
+        "action": "tap",
+        "targetDescription": "Navigate to My Saved News via profile",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickMySavedNews"
+      },
+      {
+        "id": "s9",
+        "action": "assertVisible",
+        "targetDescription": "My Saved News page is visible",
+        "screenName": "SavedNewsPage",
+        "pageObjectMethod": "expectMySavedNewsVisible"
+      },
+      {
+        "id": "s10",
+        "action": "assertCount",
+        "targetDescription": "Exactly 1 saved news card present before unsave (sanity)",
+        "locatorHint": "[data-testid='saved-news-card']"
+      },
+      {
+        "id": "s11",
+        "action": "tap",
+        "targetDescription": "Tap filled bookmark icon on the saved card to Unsave",
+        "locatorHint": "[data-testid='saved-news-card'] [data-testid='bookmark-toggle']"
+      },
+      {
+        "id": "s12",
+        "action": "assertCount",
+        "targetDescription": "Saved list updates immediately (no cards remain)",
+        "locatorHint": "[data-testid='saved-news-card']"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}

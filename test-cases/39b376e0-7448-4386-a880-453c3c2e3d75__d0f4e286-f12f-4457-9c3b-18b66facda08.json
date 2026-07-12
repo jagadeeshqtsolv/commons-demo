@@ -1,0 +1,81 @@
+{
+  "id": "d0f4e286-f12f-4457-9c3b-18b66facda08",
+  "testPlanId": "39b376e0-7448-4386-a880-453c3c2e3d75",
+  "requirementId": "c4735fc5-5067-4099-b08e-58908da24e82",
+  "suiteName": "Save News Article — Smoke E2E",
+  "case": {
+    "id": "d0f4e286-f12f-4457-9c3b-18b66facda08",
+    "title": "Saved item disappears automatically when the article is deleted/archived",
+    "priority": "P0",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [
+      "Test data: 'Test Disposable News' article exists and can be archived via admin endpoint"
+    ],
+    "steps": [
+      {
+        "id": "s1",
+        "action": "openUrl",
+        "targetDescription": "Open UKG Commons QA",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s2",
+        "action": "tap",
+        "targetDescription": "Save 'Test Disposable News' article",
+        "locatorHint": "[data-testid='news-card']:has-text('Test Disposable News') [data-testid='bookmark-toggle']"
+      },
+      {
+        "id": "s3",
+        "action": "tap",
+        "targetDescription": "Open My Saved News via toast link",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickViewSavedNewsUnder"
+      },
+      {
+        "id": "s4",
+        "action": "assertContainsText",
+        "targetDescription": "Saved list contains 'Test Disposable News'",
+        "locatorHint": "[data-testid='saved-news-card']",
+        "assertion": "Test Disposable News"
+      },
+      {
+        "id": "s5",
+        "action": "openUrl",
+        "targetDescription": "Archive the article via admin (test fixture)",
+        "value": "https://commons-qa.util.ukg.com/admin/archive?title=Test%20Disposable%20News"
+      },
+      {
+        "id": "s6",
+        "action": "openUrl",
+        "targetDescription": "Return to Home",
+        "value": "https://commons-qa.util.ukg.com/"
+      },
+      {
+        "id": "s7",
+        "action": "tap",
+        "targetDescription": "Open profile menu",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickJagadeesh"
+      },
+      {
+        "id": "s8",
+        "action": "tap",
+        "targetDescription": "Navigate to My Saved News",
+        "screenName": "UkgcommonsPage",
+        "pageObjectMethod": "clickMySavedNews"
+      },
+      {
+        "id": "s9",
+        "action": "assertHidden",
+        "targetDescription": "'Test Disposable News' no longer appears in Saved list",
+        "locatorHint": "[data-testid='saved-news-card']:has-text('Test Disposable News')"
+      }
+    ],
+    "tags": [
+      "@smoke",
+      "@regression"
+    ]
+  }
+}
