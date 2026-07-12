@@ -39,7 +39,7 @@
             "id": "s4",
             "action": "tap",
             "targetDescription": "Tap Save (bookmark) icon on a Featured news card",
-            "customCode": "await ukgcommonsPage.clickUnsaveNews();"
+            "customCode": "await ukgcommonsPage.clickSaveNews();"
           },
           {
             "id": "s5",

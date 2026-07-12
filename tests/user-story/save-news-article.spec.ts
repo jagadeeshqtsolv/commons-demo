@@ -17,7 +17,7 @@ test('Save from Featured News via toast and land on My Saved News', { tag: ["@sm
     }
   });
   await test.step('Tap Save (bookmark) icon on a Featured news card', async () => {
-    await ukgcommonsPage.clickUnsaveNews();
+    await ukgcommonsPage.clickSaveNews();
   });
   await test.step('Assert visible — Toast \'News saved successfully!, View saved news under Profile\' is visible', async () => {
     await ukgcommonsPage.expectNewsSavedSuccessfullyVisible();
