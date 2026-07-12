@@ -73,7 +73,8 @@
         ],
         "tags": [
           "@smoke",
-          "@regression"
+          "@regression",
+          "@commondemo"
         ]
       },
       {

@@ -1,7 +1,7 @@
 import { test, expect } from '@support/fixtures';
 import env from '@support/env';
 
-test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke","@regression","@P0","@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage }) => {
+test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke","@regression","@commondemo","@P0","@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage }) => {
   await test.step('Navigate to URL — Open UKG Commons QA', async () => {
     await page.goto('https://commons-qa.util.ukg.com/');
   });
