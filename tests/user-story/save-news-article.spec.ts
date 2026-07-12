@@ -1,37 +1,30 @@
 import { test, expect } from '@support/fixtures';
 import env from '@support/env';
 
-test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke","@regression","@P0","@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b"] }, async ({ page, ukgcommonsPage, savedNewsPage }) => {
-  await test.step('Open — Open UKG Commons QA', async () => {
-    await page.goto(env.baseURL);
+test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke","@regression","@P0","@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage, commonPage }) => {
+  await test.step('Navigate to URL — Open UKG Commons QA', async () => {
+    await page.goto('https://commons-qa.util.ukg.com/');
   });
-
   await test.step('Assert visible — Featured News section is visible', async () => {
     await ukgcommonsPage.expectFeaturedVisible();
   });
-
-  await test.step('Assert visible — At least one Save (bookmark) icon is visible on a news card', async () => {
-    await ukgcommonsPage.expectSaveIconVisible();
+  await test.step('At least one Save (bookmark) icon is visible on a news card', async () => {
+    await await ukgcommonsPage.expectUnsaveNewsVisible();
   });
-
-  await test.step('Click — Tap Save (bookmark) icon on a Featured news card', async () => {
-    await ukgcommonsPage.clickSaveIcon();
+  await test.step('Tap Save (bookmark) icon on a Featured news card', async () => {
+    await ukgcommonsPage.clickUnsaveNews();
   });
-
-  await test.step("Assert visible — Toast 'News saved successfully!, View saved news under Profile' is visible", async () => {
+  await test.step('Assert visible — Toast \'News saved successfully!, View saved news under Profile\' is visible', async () => {
     await ukgcommonsPage.expectNewsSavedSuccessfullyVisible();
   });
-
-  await test.step("Click — Click 'View saved news under Profile' in toast", async () => {
+  await test.step('Click — Click \'View saved news under Profile\' in toast', async () => {
     await ukgcommonsPage.clickViewSavedNewsUnder();
   });
-
   await test.step('Assert visible — My Saved News page is visible', async () => {
     await savedNewsPage.expectMySavedNewsVisible();
   });
-
-  await test.step('Assert count — There is at least 1 saved news card listed', async () => {
-    await savedNewsPage.expectMySavedNewsCount(1);
+  await test.step('Assert element count — There is at least 1 saved news card listed — ([data-testid=\'saved-news-card\'])', async () => {
+    await commonPage.expectAtLeast1SavedNewsCardExistsCount();
   });
 });
 

@@ -33,15 +33,13 @@
             "id": "s3",
             "action": "assertVisible",
             "targetDescription": "At least one Save (bookmark) icon is visible on a news card",
-            "screenName": "UkgcommonsPage",
-            "pageObjectMethod": "expectSaveIconVisible"
+            "customCode": "await await ukgcommonsPage.expectUnsaveNewsVisible();"
           },
           {
             "id": "s4",
             "action": "tap",
             "targetDescription": "Tap Save (bookmark) icon on a Featured news card",
-            "screenName": "UkgcommonsPage",
-            "pageObjectMethod": "clickSaveIcon"
+            "customCode": "await ukgcommonsPage.clickUnsaveNews();"
           },
           {
             "id": "s5",
