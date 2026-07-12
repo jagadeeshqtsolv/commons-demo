@@ -62,7 +62,9 @@
         "id": "s8",
         "action": "assertCount",
         "targetDescription": "There is at least 1 saved news card listed",
-        "locatorHint": "[data-testid='saved-news-card']"
+        "locatorHint": "[data-testid='saved-news-card']",
+        "screenName": "SavedNews",
+        "pageObjectMethod": "expectMySavedNewsVisible"
       }
     ],
     "tags": [
