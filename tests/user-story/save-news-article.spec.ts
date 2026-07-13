@@ -1,7 +1,7 @@
 import { test, expect } from '@support/fixtures';
 import env from '@support/env';
 
-test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke","@regression","@commondemo","@P0","@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage }) => {
+test('Save from Featured News via toast and land on My Saved News', { tag: ["@smoke", "@regression", "@commondemo", "@P0", "@case-9b4db29a-2a5a-48ea-8747-a5591eaff83b", "@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage }) => {
   await test.step('Navigate to URL — Open UKG Commons QA', async () => {
     await page.goto('https://commons-qa.util.ukg.com/');
   });
@@ -34,7 +34,7 @@ test('Save from Featured News via toast and land on My Saved News', { tag: ["@sm
 });
 
 
-test('Save from Latest News, navigate via profile to My Saved News, then Unsave removes immediately', { tag: ["@smoke","@regression","@P0","@case-dafb05bb-09fe-421c-a0e1-fbd5576ed419","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage, commonPage }) => {
+test('Save from Latest News, navigate via profile to My Saved News, then Unsave removes immediately', { tag: ["@smoke", "@regression", "@P0", "@case-dafb05bb-09fe-421c-a0e1-fbd5576ed419", "@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, savedNewsPage, commonPage }) => {
   await test.step('Navigate to URL — Open UKG Commons QA', async () => {
     await page.goto('https://commons-qa.util.ukg.com/');
   });
@@ -73,7 +73,7 @@ test('Save from Latest News, navigate via profile to My Saved News, then Unsave 
   });
 });
 
-test('Open a saved item from My Saved News opens full article in a new tab', { tag: ["@smoke","@regression","@manual","@P0","@case-bbfcd03b-23d1-459f-a7f1-59716f612344","@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, commonPage }) => {
+test('Open a saved item from My Saved News opens full article in a new tab', { tag: ["@smoke", "@regression", "@manual", "@P0", "@case-bbfcd03b-23d1-459f-a7f1-59716f612344", "@req-c4735fc5-5067-4099-b08e-58908da24e82"] }, async ({ page, ukgcommonsPage, commonPage }) => {
   await test.step('Navigate to URL — Open UKG Commons QA', async () => {
     await page.goto('https://commons-qa.util.ukg.com/');
   });
@@ -107,7 +107,7 @@ test('Open a saved item from My Saved News opens full article in a new tab', { t
 });
 
 
-test('Saved items persist across navigation within the same session', { tag: ["@smoke","@regression","@P0","@case-1102b616-2291-4e14-be5e-4c72ead29d56"] }, async ({ page, ukgcommonsPage, commonPage }) => {
+test('Saved items persist across navigation within the same session', { tag: ["@smoke", "@regression", "@P0", "@case-1102b616-2291-4e14-be5e-4c72ead29d56"] }, async ({ page, ukgcommonsPage, commonPage }) => {
   await test.step('Open — Open UKG Commons QA', async () => {
     await page.goto(env.baseURL);
   });

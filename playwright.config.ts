@@ -23,34 +23,34 @@ const isCI = Boolean(process.env.CI);
 function browserDevice(b: "chromium" | "firefox" | "webkit") {
   switch (b) {
     case "firefox": return { ...devices["Desktop Firefox"] };
-    case "webkit":  return { ...devices["Desktop Safari"] };
-    default:        return { ...devices["Desktop Chrome"] };
+    case "webkit": return { ...devices["Desktop Safari"] };
+    default: return { ...devices["Desktop Chrome"] };
   }
 }
 
 export default defineConfig({
   testDir: "./tests",
-  timeout:       Number(env.timeout       ?? 30000),
-  retries:       Number(env.retries        ?? 0),
+  timeout: Number(env.timeout ?? 30000),
+  retries: Number(env.retries ?? 0),
   fullyParallel: Boolean(env.fullyParallel ?? false),
-  workers:       Number(env.workers        ?? 1),
+  workers: Number(env.workers ?? 1),
   use: {
-    storageState:  ".auth/latest.json",
-    baseURL:       String(env.baseURL       ?? "https://example.com"),
-    headless:      env.headless !== false,
-    trace:         (String(env.trace        ?? "retain-on-failure")) as "off" | "on" | "retain-on-failure" | "on-all-retries",
-    video:         (String(env.video        ?? "retain-on-failure")) as "off" | "on" | "retain-on-failure" | "on-first-retry",
-    screenshot:    (String(env.screenshot   ?? "only-on-failure"))  as "off" | "on" | "only-on-failure",
+    storageState: ".auth/login_latest1.json",
+    baseURL: String(env.baseURL ?? "https://example.com"),
+    headless: env.headless !== false,
+    trace: (String(env.trace ?? "retain-on-failure")) as "off" | "on" | "retain-on-failure" | "on-all-retries",
+    video: (String(env.video ?? "retain-on-failure")) as "off" | "on" | "retain-on-failure" | "on-first-retry",
+    screenshot: (String(env.screenshot ?? "only-on-failure")) as "off" | "on" | "only-on-failure",
     actionTimeout: Number(env.actionTimeout ?? 10000),
     launchOptions: {
       args: isCI
         ? [
-            "--disable-web-security",
-            "--no-sandbox",
-            "--disable-setuid-sandbox",
-            "--disable-dev-shm-usage",
-            "--disable-gpu",
-          ]
+          "--disable-web-security",
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-gpu",
+        ]
         : [],
     },
   },
