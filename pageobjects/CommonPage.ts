@@ -42,8 +42,8 @@ import {
 
 export class CommonPage {
   private static readonly L = {
-    atLeast1SavedNewsCardExists: { strategy: 'css' as const, value: '.LatestNewsWidget_smallCards__ZurN1 > div > div > img', actionKind: 'generic' as const },    
-    articleContentIsDisplayed: { strategy: 'css' as const, value: 'body', actionKind: 'generic' as const },
+  atLeast1SavedNewsCardExists: { strategy: 'css' as const, value: '.LatestNewsWidget_smallCards__ZurN1 > div > div > img', actionKind: 'generic' as const },   
+  articleContentIsDisplayed: { strategy: 'css' as const, value: 'body', actionKind: 'generic' as const },
   } as const;
 
   constructor(private readonly page: Page) { }
@@ -168,6 +168,10 @@ export class CommonPage {
 
   async scrollArticleContentIsDisplayedIntoView(): Promise<void> {
     await scrollIntoViewWhenVisible(webLocator(this.page, CommonPage.L.articleContentIsDisplayed));
+  }
+
+  async expectAtLeast1SavedNewsCardExistsCountGreaterThan(count: number, timeoutMs = 30_000): Promise<void> {
+    await expectCountGreaterThan(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), count, timeoutMs);
   }
 
 }
