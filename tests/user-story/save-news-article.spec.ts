@@ -105,3 +105,42 @@ test('Open a saved item from My Saved News opens full article in a new tab', { t
     await commonPage.expectArticleContentIsDisplayedVisible();
   });
 });
+
+
+test('Saved items persist across navigation within the same session', { tag: ["@smoke","@regression","@P0","@case-1102b616-2291-4e14-be5e-4c72ead29d56"] }, async ({ page, ukgcommonsPage, commonPage }) => {
+  await test.step('Open — Open UKG Commons QA', async () => {
+    await page.goto(env.baseURL);
+  });
+
+  await test.step('Click — Save a news article (any)', async () => {
+    await ukgcommonsPage.clickSaveIcon();
+  });
+
+  await test.step('Assert visible — Toast confirms saved', async () => {
+    await ukgcommonsPage.expectNewsSavedSuccessfullyVisible();
+  });
+
+  await test.step('Click — Open My Saved News via toast link', async () => {
+    await ukgcommonsPage.clickViewSavedNewsUnder();
+  });
+
+  await test.step('Assert count — Exactly 1 saved news card present', async () => {
+    await commonPage.expectAtLeast1SavedNewsCardExistsCount(1);
+  });
+
+  await test.step('Open — Navigate back to Home', async () => {
+    await page.goto(env.baseURL);
+  });
+
+  await test.step('Click — Open profile menu', async () => {
+    await ukgcommonsPage.clickJagadeesh();
+  });
+
+  await test.step('Click — Navigate to My Saved News via profile', async () => {
+    await ukgcommonsPage.clickMySavedNews();
+  });
+
+  await test.step('Assert count — Saved item persists (still 1 card present)', async () => {
+    await commonPage.expectAtLeast1SavedNewsCardExistsCount(1);
+  });
+});
