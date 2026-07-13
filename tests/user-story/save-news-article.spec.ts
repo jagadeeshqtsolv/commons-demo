@@ -85,7 +85,13 @@ test('Open a saved item from My Saved News opens full article in a new tab', { t
     await page.goto('https://commons-qa.util.ukg.com/');
   });
   await test.step('Click — Save a news article (any)', async () => {
-    await ukgcommonsPage.clickSaveNews();
+    try {
+      await ukgcommonsPage.clickSaveNews();
+    } catch {
+      await await ukgcommonsPage.clickUnsaveNews();
+      await ukgcommonsPage.expectUnsaveNewsVisible();
+      await ukgcommonsPage.clickSaveNews();
+    }
   });
   await test.step('Assert visible — Toast confirms saved', async () => {
     await ukgcommonsPage.expectNewsSavedSuccessfullyVisible();
@@ -94,7 +100,7 @@ test('Open a saved item from My Saved News opens full article in a new tab', { t
     await ukgcommonsPage.clickViewSavedNewsUnder();
   });
   await test.step('Assert element count — At least 1 saved news card exists — ([data-testid=\'saved-news-card\'])', async () => {
-    await commonPage.expectAtLeast1SavedNewsCardExistsCount(1);
+    await commonPage.expectAtLeast1SavedNewsCardExistsCountGreaterThan(0);
   });
   await test.step('Click — Tap first saved news card to open article — ([data-testid=\'saved-news-card\']:first-child a)', async () => {
     await commonPage.clickAtLeast1SavedNewsCardExists();

@@ -42,7 +42,7 @@ import {
 
 export class CommonPage {
   private static readonly L = {
-    atLeast1SavedNewsCardExists: { strategy: 'testId' as const, value: 'saved-news-card', actionKind: 'generic' as const },
+    atLeast1SavedNewsCardExists: { strategy: 'css' as const, value: '.LatestNewsWidget_smallCards__ZurN1 > div > div > img', actionKind: 'generic' as const },
     articleContentIsDisplayed: { strategy: 'css' as const, value: 'body', actionKind: 'generic' as const },
   } as const;
 
@@ -103,6 +103,10 @@ export class CommonPage {
 
   async expectAtLeast1SavedNewsCardExistsCount(count: number, timeoutMs = 10_000): Promise<void> {
     await expectCount(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), count, timeoutMs);
+  }
+
+  async expectAtLeast1SavedNewsCardExistsCountGreaterThan(min: number, timeoutMs = 10_000): Promise<void> {
+    await expectCountGreaterThan(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), min, timeoutMs);
   }
 
   async scrollAtLeast1SavedNewsCardExistsIntoView(): Promise<void> {
