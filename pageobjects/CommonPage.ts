@@ -46,7 +46,7 @@ export class CommonPage {
     articleContentIsDisplayed: { strategy: 'css' as const, value: 'body', actionKind: 'generic' as const },
   } as const;
 
-  constructor(private readonly page: Page) {}
+  constructor(private readonly page: Page) { }
 
 
   async clickAtLeast1SavedNewsCardExists(): Promise<void> {
@@ -61,47 +61,47 @@ export class CommonPage {
     await longPressWhenVisible(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists));
   }
 
-  async expectAtLeast1SavedNewsCardExistsVisible(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsVisible(timeoutMs = 10_000): Promise<void> {
     await expectVisible(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsHidden(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsHidden(timeoutMs = 10_000): Promise<void> {
     await expectHidden(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsText(expected: string, timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsText(expected: string, timeoutMs = 10_000): Promise<void> {
     await expectText(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), expected, timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsContainsText(substring: string, timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsContainsText(substring: string, timeoutMs = 10_000): Promise<void> {
     await expectContainsText(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), substring, timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsValue(value: string, timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsValue(value: string, timeoutMs = 10_000): Promise<void> {
     await expectValue(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), value, timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsEnabled(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsEnabled(timeoutMs = 10_000): Promise<void> {
     await expectEnabled(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsDisabled(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsDisabled(timeoutMs = 10_000): Promise<void> {
     await expectDisabled(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsChecked(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsChecked(timeoutMs = 10_000): Promise<void> {
     await expectChecked(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsUnchecked(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsUnchecked(timeoutMs = 10_000): Promise<void> {
     await expectUnchecked(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsFocused(timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsFocused(timeoutMs = 10_000): Promise<void> {
     await expectFocused(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), timeoutMs);
   }
 
-  async expectAtLeast1SavedNewsCardExistsCount(count: number, timeoutMs = 30_000): Promise<void> {
+  async expectAtLeast1SavedNewsCardExistsCount(count: number, timeoutMs = 10_000): Promise<void> {
     await expectCount(webLocator(this.page, CommonPage.L.atLeast1SavedNewsCardExists), count, timeoutMs);
   }
 
@@ -122,47 +122,47 @@ export class CommonPage {
     await longPressWhenVisible(webLocator(this.page, CommonPage.L.articleContentIsDisplayed));
   }
 
-  async expectArticleContentIsDisplayedVisible(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedVisible(timeoutMs = 10_000): Promise<void> {
     await expectVisible(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedHidden(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedHidden(timeoutMs = 10_000): Promise<void> {
     await expectHidden(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedText(expected: string, timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedText(expected: string, timeoutMs = 10_000): Promise<void> {
     await expectText(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), expected, timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedContainsText(substring: string, timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedContainsText(substring: string, timeoutMs = 10_000): Promise<void> {
     await expectContainsText(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), substring, timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedValue(value: string, timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedValue(value: string, timeoutMs = 10_000): Promise<void> {
     await expectValue(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), value, timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedEnabled(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedEnabled(timeoutMs = 10_000): Promise<void> {
     await expectEnabled(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedDisabled(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedDisabled(timeoutMs = 10_000): Promise<void> {
     await expectDisabled(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedChecked(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedChecked(timeoutMs = 10_000): Promise<void> {
     await expectChecked(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedUnchecked(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedUnchecked(timeoutMs = 10_000): Promise<void> {
     await expectUnchecked(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedFocused(timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedFocused(timeoutMs = 10_000): Promise<void> {
     await expectFocused(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), timeoutMs);
   }
 
-  async expectArticleContentIsDisplayedCount(count: number, timeoutMs = 30_000): Promise<void> {
+  async expectArticleContentIsDisplayedCount(count: number, timeoutMs = 10_000): Promise<void> {
     await expectCount(webLocator(this.page, CommonPage.L.articleContentIsDisplayed), count, timeoutMs);
   }
 
