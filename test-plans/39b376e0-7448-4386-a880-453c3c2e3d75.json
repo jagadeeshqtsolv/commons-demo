@@ -33,13 +33,13 @@
             "id": "s3",
             "action": "assertVisible",
             "targetDescription": "At least one Save (bookmark) icon is visible on a news card",
-            "customCode": "try {\n  await ukgcommonsPage.clickSaveNews();\n  \n} catch {\n  await await ukgcommonsPage.clickUnsaveNews();\n  await ukgcommonsPage.expectUnsaveNewsVisible();\n}"
+            "customCode": "await await ukgcommonsPage.expectUnsaveNewsVisible();"
           },
           {
             "id": "s4",
             "action": "tap",
             "targetDescription": "Tap Save (bookmark) icon on a Featured news card",
-            "customCode": "await ukgcommonsPage.clickSaveNews();"
+            "customCode": "await ukgcommonsPage.clickUnsaveNews();"
           },
           {
             "id": "s5",
@@ -67,14 +67,12 @@
             "action": "assertCount",
             "targetDescription": "There is at least 1 saved news card listed",
             "locatorHint": "[data-testid='saved-news-card']",
-            "screenName": "SavedNews",
-            "pageObjectMethod": "expectMySavedNewsVisible"
+            "assertion": "1"
           }
         ],
         "tags": [
           "@smoke",
-          "@regression",
-          "@commondemo"
+          "@regression"
         ]
       },
       {
